@@ -1,0 +1,26 @@
+<mat-toolbar class="mat-elevation-z2">
+  <div fxFlex="grow" fxFill fxLayout="row" fxLayoutAlign="start center">
+
+    <!-- RIGHT part -->
+    <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+
+      <!-- LEFT SIDEBAR TRIGGER -->
+      <button
+        *ngIf="(navbar$ | async).position === 'left'"
+        mat-icon-button
+        class="navbar-toggle-button"
+        (click)="toggleSidebarOpen('navbar')"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- / LEFT SIDEBAR TRIGGER -->
+    </div>
+    <!-- / RIGHT part -->
+
+    <!-- LEFT part -->
+    <div fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+      <div class="toolbar-separator"></div>
+    </div>
+    <!-- / LEFT part -->
+  </div>
+</mat-toolbar>

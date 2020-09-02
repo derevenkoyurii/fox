@@ -1,0 +1,36 @@
+@mixin card-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $is-dark: map-get($theme, is-dark);
+
+  .card {
+    background: map-get($background, card);
+    border-color: map-get($foreground, divider);
+
+    .card-header {
+      .card-title {
+        &:after {
+          content: '';
+          background: mat-color($accent, 400);
+          position: absolute;
+          left: -12px;
+          top: 2px;
+          width: 4px;
+          height: 28px;
+        }
+      }
+    }
+
+    .card-divider {
+      &.horizontal {
+        border-top: 1px solid map-get($foreground, divider);
+      }
+
+      &.vertical {
+        border-left: 1px solid map-get($foreground, divider);
+      }
+    }
+  }
+}

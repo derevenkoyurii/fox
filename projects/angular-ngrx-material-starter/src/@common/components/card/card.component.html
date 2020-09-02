@@ -1,0 +1,86 @@
+<div class="card">
+  <!-- HEADER -->
+  <ng-container *ngIf="showHeader then headerTpl"></ng-container>
+  <!-- / HEADER -->
+
+  <!-- CONTENT -->
+  <div
+    class="card-content"
+    fxFlex="grow"
+    [ngClass]="{
+     'frozen-no-events': loadingIndicator,
+     'empty': emptyIndicator,
+     'collapsed': isCollapsed,
+     'loading': loadingIndicator
+    }"
+  >
+
+    <!-- CONTENT -->
+    <ng-content [ngClass]="{'collapsed': isCollapsed}" *ngIf="(!emptyIndicator)"></ng-content>
+    <!-- / CONTENT -->
+
+    <!-- LOADER -->
+    <anms-base-loader *ngIf="(loadingIndicator && (loaderType === 'spinner') && !isCollapsed)"></anms-base-loader>
+    <!-- / LOADER -->
+
+    <!-- EMPTY -->
+    <anms-base-empty
+      *ngIf="emptyIndicator && !loadingIndicator && !isCollapsed"
+      [icon]="emptyIcon || icons.empty"
+      [text]="texts.empty"
+    ></anms-base-empty>
+    <!-- / EMPTY -->
+
+  </div>
+  <!-- / CONTENT -->
+</div>
+
+<!------------------------------------------------------------------------------------------------------- -->
+<!-- @ PARTIALS -->
+<!------------------------------------------------------------------------------------------------------- -->
+
+<!-- HEADER TEMPLATE -->
+<ng-template #headerTpl>
+  <div class="card-header" fxLayout="row" fxLayoutAlign="space-between start">
+    <!-- RIGHT -->
+    <div class="right" fxLayoutAlign="start center" fxLayout="row">
+      <!-- TITLE -->
+      <div *ngIf="texts.title" class="mat-title m-0 text-uppercase card-title">
+        {{texts.title}}
+      </div>
+      <!-- TITLE -->
+
+      <!-- BADGE -->
+      <div *ngIf="badge" class="text-boxed primary-300 mat-elevation-z1">
+        {{badge}}
+      </div>
+      <!-- BADGE -->
+    </div>
+    <!-- RIGHT -->
+
+    <!-- LEFT -->
+    <div class="left" fxLayoutAlign="end center" fxLayout="row">
+      <!-- COLLAPSE -->
+      <button
+        class="collapse-button"
+        *ngIf="canCollapse"
+        mat-icon-button
+        (click)="toggleCollapse()"
+      >
+        <mat-icon>{{isCollapsed ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}</mat-icon>
+      </button>
+      <!-- COLLAPSE -->
+    </div>
+    <!-- LEFT -->
+
+    <!-- PROGRESS BAR -->
+    <mat-progress-bar
+      *ngIf="loadingIndicator && (loaderType === 'progress')"
+      color="accent"
+      [mode]="'indeterminate'">
+    </mat-progress-bar>
+    <!-- / PROGRESS BAR -->
+  </div>
+</ng-template>
+<!-- / HEADER TEMPLATE -->
+

@@ -1,0 +1,36 @@
+<div class="search-bar" [ngClass]="{  expanded: !collapsed}">
+  <div class="search-bar-content">
+    <label for="search-bar-input">
+      <button
+        mat-button
+        class="search-bar-expander w-100-p"
+        aria-label="Expand Search Bar"
+        (click)="expand()"
+        *ngIf="collapsed"
+      >
+        <mat-icon class="s-26 secondary-text">search</mat-icon>
+        <span class="secondary-text">{{placeholder}}</span>
+      </button>
+    </label>
+
+    <input
+      autocomplete="off"
+      #searchInput
+      id="search-bar-input"
+      type="text"
+      placeholder="{{placeholder}}"
+      (input)="onChangeInput($event)"
+      value="{{value}}"
+      fxFlex
+    />
+
+    <button
+      mat-icon-button
+      class="search-bar-collapser"
+      (click)="collapse()"
+      aria-label="Collapse Search Bar"
+    >
+      <mat-icon class="s-26 secondary-text">close</mat-icon>
+    </button>
+  </div>
+</div>

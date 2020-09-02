@@ -1,0 +1,186 @@
+/*----------------------------------------------------------------*/
+/*  Print
+/*----------------------------------------------------------------*/
+@media all {
+  /* Never show page breaks in normal view */
+  .page-break-after,
+  .page-break-before {
+    display: none;
+  }
+}
+
+@mixin globalExportView {
+  /* html and body tweaks */
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  // Headings
+  .mat-h1,
+  .mat-h2,
+  .mat-h3,
+  .mat-h4,
+  .mat-h5,
+  .mat-h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-size: 0.9em !important;
+    min-height: 1em !important;
+    line-height: 0.9em !important;
+  }
+
+  .head-line, .header-line {
+    background-color: unset !important;
+  }
+
+  mat-icon {
+    &:not(.s-locked) {
+      font-size: 1em !important;
+      height: 1em !important;
+      min-height: 1em !important;
+      line-height: 1em !important;
+    }
+  }
+
+  // block elevation
+  .text-boxed,
+  [class^="mat-elevation-z"] {
+    box-shadow: none !important;
+  }
+
+  // hide tooltips and other overlay content
+  body > * {
+    &:not(anms-root) {
+      display: none !important;
+      visibility: hidden !important;
+    }
+  }
+
+  anms-more-info,
+  .cdk-overlay-container,
+  .anms-d3-tooltip,
+  .mat-tab-header {
+    display: none !important;
+  }
+
+  /* Page breaks */
+  .page-break-after {
+    display: block;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page-break-before {
+    display: block;
+    page-break-before: always;
+    position: relative;
+  }
+
+  /* General styles */
+  anms-root {
+    anms-sidebar,
+    anms-navigation,
+    anms-layout-toolbar,
+    anms-layout-footer,
+    .has-comments::after,
+    .sidebar-button,
+    .header,
+    .ps > .ps__rail-x,
+    .ps > .ps__rail-y {
+      width: 0 !important;
+      max-width: 0 !important;
+      min-width: 0 !important;
+      display: none !important;
+    }
+
+    .ps {
+      overflow: visible !important;
+    }
+
+    #main,
+    #container-1,
+    #container-2,
+    #container-3 {
+      padding: 0 !important;
+      overflow: visible !important;
+    }
+
+    .mat-drawer-container,
+    .mat-sidenav-container {
+      background-color: white !important;
+
+      .mat-drawer-content,
+      .mat-sidenav-content {
+        overflow: initial !important;
+        height: auto !important;
+      }
+    }
+
+    // todo
+    canvas {
+      width: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      height: 100% !important;
+    }
+
+    // ngx-datatable
+    ngx-datatable {
+      datatable-selection,
+      datatable-body-cell,
+      datatable-header-cell,
+      datatable-body-row,
+      .datatable-header-inner,
+      .datatable-row-center {
+        width: 100% !important;
+        min-height: unset !important;
+      }
+
+      datatable-header {
+        min-height: unset !important;
+      }
+
+      datatable-body {
+        .cell-value {
+          padding: 0 !important;
+        }
+
+        .sub-total,
+        .total {
+          background-color: unset !important;
+        }
+      }
+
+      datatable-footer {
+        min-height: unset !important;
+        display: none !important;
+      }
+
+      datatable-header-cell,
+      datatable-body-cell,
+      .datatable-row-group {
+        min-height: unset !important;
+      }
+    }
+  }
+}
+
+@media print {
+  @include globalExportView;
+}
+
+body.exporting {
+  @include globalExportView;
+}

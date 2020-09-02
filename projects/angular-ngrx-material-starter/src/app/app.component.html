@@ -1,0 +1,9 @@
+<!-- PROGRESS BAR -->
+<anms-progress-bar></anms-progress-bar>
+<!-- / PROGRESS BAR -->
+
+<ng-container [ngSwitch]="(layoutStyle$ | async)">
+  <!-- VERTICAL LAYOUT -->
+  <anms-vertical-layout-1 *ngSwitchCase="'vertical-layout-1'"></anms-vertical-layout-1>
+  <!-- / VERTICAL LAYOUT-->
+</ng-container>

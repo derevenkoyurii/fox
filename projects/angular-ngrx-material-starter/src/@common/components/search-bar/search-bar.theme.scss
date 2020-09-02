@@ -1,0 +1,14 @@
+@mixin search-bar-theme($theme) {
+  $background: map-get($theme, background);
+
+  .search-bar {
+    background-color: map-get(
+      $background,
+      darken(map-get($background, card), 50%)
+    );
+
+    &.expanded {
+      // background-color: map-get($background, background);
+    }
+  }
+}

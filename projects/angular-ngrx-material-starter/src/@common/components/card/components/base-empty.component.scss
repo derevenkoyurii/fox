@@ -1,0 +1,18 @@
+@import '@common/scss/common';
+
+anms-base-empty {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .empty-icon {
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    display: block;
+    text-align: center;
+  }
+}

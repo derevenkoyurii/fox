@@ -1,0 +1,29 @@
+@import '@common/scss/common';
+
+#error-404 {
+  width: 100%;
+
+  .content {
+    width: 90%;
+    max-width: 512px !important;
+
+    .error-code {
+      margin-bottom: 16px;
+      font-size: 112px;
+      line-height: 1;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .link {
+      margin-top: 16px;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+}

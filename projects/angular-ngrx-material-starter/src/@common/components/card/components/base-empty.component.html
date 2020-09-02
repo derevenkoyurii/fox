@@ -1,0 +1,7 @@
+<div>
+  <mat-icon class="mb-12 secondary-text empty-icon s-locked" [ngClass]="iconSize">
+    {{icon}}
+  </mat-icon>
+
+  <div *ngIf="text" [ngClass]="'font-size-'+textSize" class="secondary-text text-center">{{text}}</div>
+</div>

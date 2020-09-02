@@ -1,0 +1,16 @@
+@import '@common/scss/common';
+
+anms-progress-bar {
+  position: absolute;
+  z-index: 99998;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+
+  mat-progress-bar {
+    .mat-progress-bar-buffer {
+      background-color: #c5c6cb !important;
+    }
+  }
+}

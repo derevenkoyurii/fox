@@ -1,0 +1,29 @@
+
+// Perfect scrollbar
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+// common
+@import 'common';
+
+// Theme
+@import 'theme';
+
+// Include core Angular Material styles
+@include mat-core();
+
+// Partials
+@import 'partials/normalize';
+@import 'partials/scrollbars';
+@import 'partials/helpers';
+@import 'partials/general';
+@import 'partials/icons';
+@import 'partials/colors';
+@import 'partials/material';
+@import 'partials/typography';
+@import 'partials/page-layouts';
+@import 'partials/navigation';
+@import 'partials/forms';
+@import 'partials/print';
+
+// Plugins
+@import "partials/plugins/plugins";

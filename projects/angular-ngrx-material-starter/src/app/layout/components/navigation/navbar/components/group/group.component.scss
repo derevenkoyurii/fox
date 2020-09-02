@@ -1,0 +1,21 @@
+:host {
+  .folded:not(.unfolded) & {
+    > .group-title {
+      align-items: center;
+
+      &::before {
+        position: absolute;
+        display: block;
+        min-width: 1.6rem;
+        opacity: 0.2;
+        content: '';
+        border-top: 2px solid;
+      }
+
+      > span {
+        opacity: 0;
+        transition: opacity 200ms ease;
+      }
+    }
+  }
+}

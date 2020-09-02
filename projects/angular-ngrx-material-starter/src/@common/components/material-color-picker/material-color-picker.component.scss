@@ -1,0 +1,39 @@
+.material-color-picker-menu {
+  width: 245px;
+
+  .mat-menu-content {
+    padding: 0;
+
+    .views {
+      display: flex;
+      min-height: 165px;
+      flex-direction: column;
+
+      .view {
+        overflow: hidden;
+
+        .colors {
+          margin-left: -1px;
+          padding: 1px 0 0;
+
+          .color {
+            margin: 0 0 1px 1px;
+            width: 40px;
+            height: 40px;
+            border-radius: 0;
+            transition: border-radius 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+
+            &:hover {
+              border-radius: 20%;
+            }
+
+            &.selected {
+              border-radius: 50% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

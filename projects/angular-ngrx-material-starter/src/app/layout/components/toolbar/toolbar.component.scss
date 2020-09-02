@@ -1,0 +1,64 @@
+@import '@common/scss/common';
+
+anms-layout-toolbar {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex: 0 0 auto;
+
+  &.below {
+    z-index: 2;
+  }
+
+  .mat-toolbar {
+    position: relative;
+    color: inherit !important;
+    background: inherit !important;
+
+    @include media-breakpoint('gt-md') {
+     .navbar-toggle-button {
+        display: none;
+      }
+    }
+
+    .toolbar-badge {
+      @include mat-elevation(1);
+
+      left: 24px;
+      bottom: 22px;
+      position: absolute;
+      justify-content: center;
+      margin-left: 8px;
+      padding: 0 7px;
+      display: flex;
+      min-width: 26px;
+      height: 20px;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bolder;
+      border-radius: 10px;
+      transition: opacity 0.2s ease-in-out 0.1s;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+
+    .logo-icon {
+      max-width: 42px;
+      width: 42px;
+      height: 38px;
+    }
+  }
+
+  .toolbar-separator {
+    width: 1px;
+    height: 64px;
+
+    @include media-breakpoint('xs') {
+      height: 56px;
+    }
+  }
+}
