@@ -41,7 +41,8 @@
     line-height: 0.9em !important;
   }
 
-  .head-line, .header-line {
+  .head-line,
+  .header-line {
     background-color: unset !important;
   }
 
@@ -56,7 +57,7 @@
 
   // block elevation
   .text-boxed,
-  [class^="mat-elevation-z"] {
+  [class^='mat-elevation-z'] {
     box-shadow: none !important;
   }
 

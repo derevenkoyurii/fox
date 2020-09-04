@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import {commonAnimations} from 'src/common';
-import {AuthenticationService} from '../core/services/authentication.service';
+import { commonAnimations } from 'src/common';
+import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,6 @@ import {AuthenticationService} from '../core/services/authentication.service';
   encapsulation: ViewEncapsulation.None,
   animations: commonAnimations
 })
-
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
@@ -20,8 +19,7 @@ export class LoginComponent implements OnInit {
     private _router: Router,
     private _formBuilder: FormBuilder,
     private _auth: AuthenticationService
-  ) {
-  }
+  ) {}
 
   /**
    * On init
@@ -37,15 +35,13 @@ export class LoginComponent implements OnInit {
    *
    */
   login(): void {
-
-    this._auth.login(this.loginForm.value)
-      .subscribe(
-        () => {
-          this._router.navigateByUrl('/apps/todo/all');
-        },
-        (err) => {
-          console.error(err);
-        }
-      );
+    this._auth.login(this.loginForm.value).subscribe(
+      () => {
+        this._router.navigateByUrl('/apps/todo/all');
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 }

@@ -17,14 +17,12 @@ app-todo-list-item {
   }
 
   &.move-disabled {
-
     .handle {
       display: none;
     }
   }
 
   .tags {
-
     .tag {
       font-size: 11px;
       border-radius: 2px;
@@ -41,7 +39,6 @@ app-todo-list-item {
   }
 
   &.completed {
-
     .title,
     .notes {
       text-decoration: line-through;
@@ -62,7 +59,6 @@ app-todo-list-item {
   }
 
   .buttons {
-
     .is-starred {
       margin: 0 0 0 16px;
     }
@@ -87,7 +83,7 @@ app-todo-list-item {
     margin: 0 !important;
     z-index: 9999 !important;
     opacity: 0.8;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
     filter: alpha(opacity=80);
     @include mat-elevation(7);
   }
@@ -105,7 +101,7 @@ app-todo-list-item {
 
   &.gu-transit {
     opacity: 0.2;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)';
     filter: alpha(opacity=20);
   }
 }

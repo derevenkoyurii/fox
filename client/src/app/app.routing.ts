@@ -16,16 +16,15 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'apps',
-    loadChildren: () => import('./main/apps/apps.module')
-      .then((m) => m.AppsModule),
+    loadChildren: () =>
+      import('./main/apps/apps.module').then((m) => m.AppsModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'ui',
-    loadChildren: () => import('./main/ui/ui.module')
-      .then((m) => m.UIModule),
+    loadChildren: () => import('./main/ui/ui.module').then((m) => m.UIModule),
     canActivate: [AuthGuard]
-  },
+  }
 ];
 
 @NgModule({

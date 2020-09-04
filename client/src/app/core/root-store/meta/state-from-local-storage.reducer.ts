@@ -11,7 +11,7 @@ import { RootStoreState } from 'src/app/core';
 export function initStateFromLocalStorage(
   reducer: ActionReducer<RootStoreState>
 ): ActionReducer<RootStoreState> {
-  return function(state, action) {
+  return function (state, action) {
     const newState = reducer(state, action);
 
     if ([INIT.toString(), UPDATE.toString()].includes(action.type)) {

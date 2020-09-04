@@ -1,20 +1,18 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
-import {DirectivesModule} from 'src/common/directives';
-import {MaterialColorPickerModule} from 'src/common/components/material-color-picker/material-color-picker.module';
-import {SidebarModule} from 'src/common/components/sidebar/sidebar.module';
-import {MaterialModule} from 'src/common/material.module';
+import { DirectivesModule } from 'src/common/directives';
+import { MaterialColorPickerModule } from 'src/common/components/material-color-picker/material-color-picker.module';
+import { SidebarModule } from 'src/common/components/sidebar/sidebar.module';
+import { MaterialModule } from 'src/common/material.module';
 
-import {ThemeOptionsComponent} from './theme-options.component';
+import { ThemeOptionsComponent } from './theme-options.component';
 
 @NgModule({
-  declarations: [
-    ThemeOptionsComponent
-  ],
+  declarations: [ThemeOptionsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,9 +25,6 @@ import {ThemeOptionsComponent} from './theme-options.component';
     MaterialColorPickerModule,
     SidebarModule
   ],
-  exports: [
-    ThemeOptionsComponent
-  ]
+  exports: [ThemeOptionsComponent]
 })
-export class ThemeOptionsModule {
-}
+export class ThemeOptionsModule {}

@@ -50,14 +50,14 @@ export class TodoListComponent implements OnInit, OnDestroy {
     // Subscribe to update todos on changes
     this._todoService.onTodosChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(todos => {
+      .subscribe((todos) => {
         this.todos = todos;
       });
 
     // Subscribe to update current todo on changes
     this._todoService.onCurrentTodoChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(currentTodo => {
+      .subscribe((currentTodo) => {
         if (!currentTodo) {
           // Set the current todo id to null to deselect the current todo
           this.currentTodo = null;
@@ -107,7 +107,5 @@ export class TodoListComponent implements OnInit, OnDestroy {
    *
    * @param ev
    */
-  onDrop(ev): void {
-
-  }
+  onDrop(ev): void {}
 }

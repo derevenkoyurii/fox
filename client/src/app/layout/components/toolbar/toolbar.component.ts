@@ -1,10 +1,14 @@
-import {ChangeDetectionStrategy, ViewEncapsulation, Component} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {CommonSidebarService} from 'src/common';
-import {RootStoreState, layoutSelectors} from 'src/app/core';
+import {
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  Component
+} from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CommonSidebarService } from 'src/common';
+import { RootStoreState, layoutSelectors } from 'src/app/core';
 
-import {AuthenticationService} from 'src/app/core/services/authentication.service';
+import { AuthenticationService } from 'src/app/core/services/authentication.service';
 
 @Component({
   selector: 'app-layout-toolbar',
@@ -14,7 +18,9 @@ import {AuthenticationService} from 'src/app/core/services/authentication.servic
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarComponent {
-  navigation$: Observable<any> = this._store.select(layoutSelectors.getLayoutNavigation);
+  navigation$: Observable<any> = this._store.select(
+    layoutSelectors.getLayoutNavigation
+  );
 
   /**
    * Constructor
@@ -22,9 +28,8 @@ export class ToolbarComponent {
   constructor(
     private _store: Store<RootStoreState>,
     private _sidebarService: CommonSidebarService,
-    private _auth: AuthenticationService,
-  ) {
-  }
+    private _auth: AuthenticationService
+  ) {}
 
   /**
    * Toggle sidebar open

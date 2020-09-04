@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CommonMatchMediaService } from 'src/common/services';
 
-@Directive({selector: '.inner-scroll'})
+@Directive({ selector: '.inner-scroll' })
 export class InnerScrollDirective implements OnInit, OnDestroy {
   private _parent: any;
   private _grandParent: any;

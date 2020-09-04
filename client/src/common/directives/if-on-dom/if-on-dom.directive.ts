@@ -6,7 +6,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-@Directive({selector: '[commonIfOnDom]'})
+@Directive({ selector: '[commonIfOnDom]' })
 export class IfOnDomDirective implements AfterContentChecked {
   isCreated: boolean;
 

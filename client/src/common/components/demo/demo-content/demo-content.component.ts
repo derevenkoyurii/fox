@@ -1,5 +1,5 @@
 // outer
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // end
 
 @Component({
@@ -11,6 +11,5 @@ export class DemoContentComponent {
   /**
    * Constructor
    */
-  constructor() {
-  }
+  constructor() {}
 }

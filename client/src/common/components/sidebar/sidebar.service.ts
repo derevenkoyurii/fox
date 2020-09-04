@@ -5,7 +5,6 @@ import { SidebarComponent } from './sidebar.component';
 
 @Injectable({ providedIn: 'root' })
 export class CommonSidebarService {
-
   private _registry: { [key: string]: SidebarComponent } = {};
 
   /**

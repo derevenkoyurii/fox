@@ -11,6 +11,5 @@ export class CardedFullWidth1Component {
   /**
    * Constructor
    */
-  constructor() {
-  }
+  constructor() {}
 }

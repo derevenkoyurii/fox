@@ -16,7 +16,7 @@ app-layout-toolbar {
     background: inherit !important;
 
     @include media-breakpoint('gt-md') {
-     .navbar-toggle-button {
+      .navbar-toggle-button {
         display: none;
       }
     }

@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -64,7 +71,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
     // Subscribe to update on selected todo change
     this._todoService.onSelectedTodosChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(selectedTodos => {
+      .subscribe((selectedTodos) => {
         this.selected = false;
 
         if (selectedTodos.length > 0) {
@@ -80,7 +87,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
     // Subscribe to update on tag change
     this._todoService.onTagsChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(tags => {
+      .subscribe((tags) => {
         this.tags = tags;
       });
   }

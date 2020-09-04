@@ -9,6 +9,5 @@ export class BlankComponent {
   /**
    * Constructor
    */
-  constructor() {
-  }
+  constructor() {}
 }

@@ -1,4 +1,4 @@
-@import "src/common/scss/common";
+@import 'src/common/scss/common';
 
 @keyframes rotating {
   from {
@@ -47,7 +47,6 @@ app-theme-options {
         position: relative;
         border-radius: 2px;
         padding: 24px 8px 4px 8px;
-
 
         h2 {
           position: absolute;

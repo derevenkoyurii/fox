@@ -48,22 +48,23 @@ export class TodoComponent implements OnInit, OnDestroy {
     this._todoService.onSelectedTodosChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((selectedTodos) => {
-
         setTimeout(() => {
           this.hasSelectedTodos = selectedTodos.length > 0;
-          this.isIndeterminate = (selectedTodos.length !== this._todoService.todos.length && selectedTodos.length > 0);
+          this.isIndeterminate =
+            selectedTodos.length !== this._todoService.todos.length &&
+            selectedTodos.length > 0;
         }, 0);
       });
 
     this._todoService.onFiltersChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(folders => {
+      .subscribe((folders) => {
         this.filters = this._todoService.filters;
       });
 
     this._todoService.onTagsChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(tags => {
+      .subscribe((tags) => {
         this.tags = this._todoService.tags;
       });
 
@@ -73,14 +74,13 @@ export class TodoComponent implements OnInit, OnDestroy {
         debounceTime(300),
         distinctUntilChanged()
       )
-      .subscribe(searchText => {
+      .subscribe((searchText) => {
         this._todoService.onSearchTextChanged.next(searchText);
       });
 
     this._todoService.onCurrentTodoChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(([currentTodo, formType]) => {
-
         if (!currentTodo) {
           this.currentTodo = null;
         } else {

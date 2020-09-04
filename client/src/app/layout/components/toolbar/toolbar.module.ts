@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {SearchBarModule, MaterialModule} from 'src/common';
+import { SearchBarModule, MaterialModule } from 'src/common';
 
 import { ToolbarComponent } from './toolbar.component';
 
@@ -14,7 +14,7 @@ import { ToolbarComponent } from './toolbar.component';
 
     FlexLayoutModule,
     MaterialModule,
-    SearchBarModule,
+    SearchBarModule
   ],
   declarations: [ToolbarComponent],
   exports: [ToolbarComponent]

@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NgxDnDModule } from '@swimlane/ngx-dnd';
 
-import { MaterialModule, SidebarModule, DirectivesModule, PipesModule } from 'src/common';
+import {
+  MaterialModule,
+  SidebarModule,
+  DirectivesModule,
+  PipesModule
+} from 'src/common';
 
 import { TodoService } from './todo.service';
 import { TodoComponent } from './todo.component';
@@ -40,11 +45,8 @@ import { TodoRouting } from './todo.routing';
     DirectivesModule,
     PipesModule,
 
-    TodoRouting,
+    TodoRouting
   ],
-  providers: [
-    TodoService
-  ]
+  providers: [TodoService]
 })
-export class TodoModule {
-}
+export class TodoModule {}

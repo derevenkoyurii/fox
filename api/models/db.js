@@ -1,5 +1,6 @@
 require('./user');
 require('./todo');
+
 const mongoose = require('mongoose');
 const dbURI = 'mongodb://localhost:27017/mean';
 

@@ -1,8 +1,8 @@
 // outer
-import {ActionReducer} from '@ngrx/store';
-import {omit} from 'lodash';
+import { ActionReducer } from '@ngrx/store';
+import { omit } from 'lodash';
 // inner
-import {RootStoreState} from 'src/app/core';
+import { RootStoreState } from 'src/app/core';
 // end
 
 /**
@@ -19,7 +19,7 @@ export function debug(
 
     let payload = (action as any).payload;
     if (!payload) {
-      payload = {...omit(action, ['payload', 'type'])};
+      payload = { ...omit(action, ['payload', 'type']) };
     }
 
     console.log(`[DEBUG] action: ${action.type}`, {

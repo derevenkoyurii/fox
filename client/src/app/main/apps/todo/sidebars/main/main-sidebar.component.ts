@@ -29,10 +29,7 @@ export class TodoMainSidebarComponent implements OnInit, OnDestroy {
    * @param {TodoService} _todoService
    * @param {Router} _router
    */
-  constructor(
-    private _todoService: TodoService,
-    private _router: Router
-  ) {
+  constructor(private _todoService: TodoService, private _router: Router) {
     // Set the defaults
     this.accounts = {
       creapond: 'lorem@com',
@@ -50,13 +47,13 @@ export class TodoMainSidebarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._todoService.onFiltersChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(filters => {
+      .subscribe((filters) => {
         this.filters = filters;
       });
 
     this._todoService.onTagsChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(tags => {
+      .subscribe((tags) => {
         this.tags = tags;
       });
   }

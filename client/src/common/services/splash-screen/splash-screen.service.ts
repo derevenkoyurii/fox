@@ -1,18 +1,18 @@
 // outer
-import {Injectable} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import {
   animate,
   AnimationPlayer,
   style,
   //
-  AnimationBuilder,
+  AnimationBuilder
 } from '@angular/animations';
 // rxjs
-import {filter, take} from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 // end
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CommonSplashScreenService {
   splashScreenEl: any;
   player: AnimationPlayer;
@@ -61,8 +61,8 @@ export class CommonSplashScreenService {
   show(): void {
     this.player = this._animationBuilder
       .build([
-        style({opacity: '0', zIndex: '99999'}),
-        animate('400ms ease', style({opacity: '1'}))
+        style({ opacity: '0', zIndex: '99999' }),
+        animate('400ms ease', style({ opacity: '1' }))
       ])
       .create(this.splashScreenEl);
 
@@ -77,7 +77,7 @@ export class CommonSplashScreenService {
   hide(): void {
     this.player = this._animationBuilder
       .build([
-        style({opacity: '1'}),
+        style({ opacity: '1' }),
         animate(
           '400ms ease',
           style({

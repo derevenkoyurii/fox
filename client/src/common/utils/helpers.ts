@@ -33,7 +33,6 @@ export class Utils {
       }
     });
 
-
     return parsedProps;
   }
 
@@ -41,7 +40,10 @@ export class Utils {
    *
    */
   public static windowDispatchResize(): any {
-    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+    if (
+      navigator.userAgent.indexOf('MSIE') !== -1 ||
+      navigator.appVersion.indexOf('Trident/') > 0
+    ) {
       const evt = document.createEvent('Events');
       evt.initEvent('resize', true, false);
       window.dispatchEvent(evt);

@@ -1,10 +1,17 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 
-import {AuthenticationService} from '../core/services/authentication.service';
-import {Router} from '@angular/router';
+import { AuthenticationService } from '../core/services/authentication.service';
+import { Router } from '@angular/router';
 
-import {commonAnimations} from 'src/common';
+import { commonAnimations } from 'src/common';
 
 @Component({
   selector: 'app-register',
@@ -20,8 +27,7 @@ export class RegisterComponent implements OnInit {
     private _router: Router,
     private _formBuilder: FormBuilder,
     private _auth: AuthenticationService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this._formBuilder.group({
@@ -31,38 +37,31 @@ export class RegisterComponent implements OnInit {
       passwordConfirm: ['', [Validators.required, confirmPasswordValidator]]
     });
 
-    this.registerForm.get('password')
-      .valueChanges
-      .subscribe(() => {
-
-        this.registerForm.get('passwordConfirm')
-          .updateValueAndValidity();
-      });
+    this.registerForm.get('password').valueChanges.subscribe(() => {
+      this.registerForm.get('passwordConfirm').updateValueAndValidity();
+    });
   }
 
   register(): void {
-    const {email, name, password} = this.registerForm.value;
+    const { email, name, password } = this.registerForm.value;
 
-    this._auth
-      .register({email, name, password})
-      .subscribe(
-        () => {
-
+    this._auth.register({ email, name, password }).subscribe(
+      () => {
         this._router.navigateByUrl('/ui/page-layouts/simple/right-sidebar-3');
-        },
-        (err) => {
-          console.error(err);
-        }
-      );
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 }
-
 
 /**
  * Confirm password validator
  */
-export const confirmPasswordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-
+export const confirmPasswordValidator: ValidatorFn = (
+  control: AbstractControl
+): ValidationErrors | null => {
   if (!control.parent || !control) {
     return null;
   }
@@ -82,5 +81,5 @@ export const confirmPasswordValidator: ValidatorFn = (control: AbstractControl):
     return null;
   }
 
-  return {passwordsNotMatching: true};
+  return { passwordsNotMatching: true };
 };

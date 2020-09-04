@@ -6,7 +6,6 @@ app-sidebar {
 
     &.folded:not(.unfolded) {
       app-layout-navigation {
-
         .navbar-top {
           padding: 12px 0;
           justify-content: center;
@@ -31,7 +30,6 @@ app-sidebar {
         }
 
         .navbar-scroll-container {
-
           .user {
             padding: 12px 0;
             height: 64px;
@@ -62,9 +60,7 @@ app-sidebar {
 
             // Material 2 specific style
             .material2 {
-
               .nav-item {
-
                 .nav-link {
                   border-radius: 20px;
                   margin: 0 12px;
@@ -146,7 +142,7 @@ app-layout-navigation {
     -webkit-overflow-scrolling: touch;
 
     background: linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%),
-    linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%);
+      linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%);
 
     background-repeat: no-repeat;
     background-size: 100% 40px, 100% 10px;

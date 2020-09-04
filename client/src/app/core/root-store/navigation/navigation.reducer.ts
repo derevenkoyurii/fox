@@ -1,16 +1,16 @@
-import {createReducer, on, Action} from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 import * as navigationActions from './navigation.actions';
-import {initialStateNavigation, NavigationState} from './navigation.state';
+import { initialStateNavigation, NavigationState } from './navigation.state';
 
 const reducer = createReducer(
   initialStateNavigation,
   // updateNavbarItem
   on(navigationActions.updateNavbarItem, (state: NavigationState, action) => {
-    const {data, id} = action.payload;
+    const { data, id } = action.payload;
 
     const futurePages = state.ui.pages.map((page) => {
       if (page.id === id) {
-        return {...page, ...data};
+        return { ...page, ...data };
       }
 
       return page;
@@ -26,7 +26,6 @@ const reducer = createReducer(
   }),
   // changePages
   on(navigationActions.changePages, (state: NavigationState, action) => {
-
     return {
       ...state,
       ui: {

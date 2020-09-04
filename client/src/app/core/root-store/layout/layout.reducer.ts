@@ -32,7 +32,7 @@ const reducer = createReducer(
         ...action.payload
       }
     };
-  }),
+  })
 );
 
 // wrap our const reducer for AOT support.

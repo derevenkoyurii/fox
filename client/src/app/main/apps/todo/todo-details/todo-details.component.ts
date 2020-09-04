@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
@@ -44,7 +50,6 @@ export class TodoDetailsComponent implements OnInit, OnDestroy {
     this._todoService.onCurrentTodoChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(([todo, formType]) => {
-
         if (todo && formType === 'edit') {
           this.formType = 'edit';
           this.todo = todo;
@@ -56,7 +61,7 @@ export class TodoDetailsComponent implements OnInit, OnDestroy {
               debounceTime(500),
               distinctUntilChanged()
             )
-            .subscribe(data => {
+            .subscribe((data) => {
               this._todoService.updateTodo(data);
             });
         }
@@ -65,7 +70,7 @@ export class TodoDetailsComponent implements OnInit, OnDestroy {
     // Subscribe to update on tag change
     this._todoService.onTagsChanged
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(labels => {
+      .subscribe((labels) => {
         this.tags = labels;
       });
 
@@ -73,15 +78,12 @@ export class TodoDetailsComponent implements OnInit, OnDestroy {
     this._todoService.onNewTodoClicked
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(() => {
-
         this.todo = new Todo({});
         this.todo.id = Utils.generateGUID();
         this.formType = 'new';
         this.todoForm = this.createTodoForm();
 
-        this._todoService
-          .onCurrentTodoChanged
-          .next([this.todo, 'new']);
+        this._todoService.onCurrentTodoChanged.next([this.todo, 'new']);
       });
   }
 

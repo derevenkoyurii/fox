@@ -1,4 +1,3 @@
-
 export const environment = {
   appName: 'Mean Material DEV',
   envName: 'DEV',

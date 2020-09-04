@@ -1,10 +1,14 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {Platform} from '@angular/cdk/platform';
-import {Store} from '@ngrx/store';
+import { Platform } from '@angular/cdk/platform';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import {CommonSidebarService, CommonSplashScreenService} from 'src/common';
-import {RootStoreState, AuthenticationService, layoutSelectors} from 'src/app/core';
+import { CommonSidebarService, CommonSplashScreenService } from 'src/common';
+import {
+  RootStoreState,
+  AuthenticationService,
+  layoutSelectors
+} from 'src/app/core';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +23,7 @@ export class AppComponent implements OnInit {
     'theme-yellow-light',
 
     'theme-blue-gray-dark',
-    'theme-pink-dark',
+    'theme-pink-dark'
   ];
   activeTheme = this.themes[3];
 
@@ -29,8 +33,7 @@ export class AppComponent implements OnInit {
     private _platform: Platform,
     public auth: AuthenticationService,
     private _sidebarService: CommonSidebarService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.setThemeClass(this.activeTheme);

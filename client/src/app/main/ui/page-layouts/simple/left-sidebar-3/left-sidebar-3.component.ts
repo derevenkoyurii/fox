@@ -1,30 +1,25 @@
 import { Component } from '@angular/core';
 
-import {CommonSidebarService } from 'src/common';
+import { CommonSidebarService } from 'src/common';
 @Component({
-    selector   : 'app-simple-left-sidebar-4',
-    templateUrl: './left-sidebar-3.component.html',
-    styleUrls  : ['./left-sidebar-3.component.scss']
+  selector: 'app-simple-left-sidebar-4',
+  templateUrl: './left-sidebar-3.component.html',
+  styleUrls: ['./left-sidebar-3.component.scss']
 })
-export class SimpleLeftSidebar3Component
-{
-    /**
+export class SimpleLeftSidebar3Component {
+  /**
      * Constructor
      *
      * @param _sidebarService
 
 */
-    constructor(
-        private _sidebarService: CommonSidebarService
-    )
-    {
-    }/**
-     * Toggle sidebar
-     *
-     * @param name
-     */
-    toggleSidebar(name): void
-    {
-        this._sidebarService.getSidebar(name).toggleOpen();
-    }
+  constructor(private _sidebarService: CommonSidebarService) {}
+  /**
+   * Toggle sidebar
+   *
+   * @param name
+   */
+  toggleSidebar(name): void {
+    this._sidebarService.getSidebar(name).toggleOpen();
+  }
 }

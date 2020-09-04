@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+import { CommonModule } from '@angular/common';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
-import {DirectivesModule, SidebarModule} from 'src/common';
+import { DirectivesModule, SidebarModule } from 'src/common';
 
 import { ContentModule } from '../../components/content/content.module';
 import { FooterModule } from '../../components/footer/footer.module';

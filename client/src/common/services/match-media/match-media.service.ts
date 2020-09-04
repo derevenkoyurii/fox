@@ -32,13 +32,10 @@ export class CommonMatchMediaService {
    * @private
    */
   private initialize(): void {
-
-    this._mediaObserver.asObservable()
-      .pipe(
-        map((changes: MediaChange[]) => changes[0])
-      )
+    this._mediaObserver
+      .asObservable()
+      .pipe(map((changes: MediaChange[]) => changes[0]))
       .subscribe((change: MediaChange) => {
-
         this.activeMediaQuery = change.mqAlias;
         this.onMediaChange.next(change.mqAlias);
       });

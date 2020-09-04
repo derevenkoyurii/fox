@@ -5,9 +5,6 @@ import { EmptyModule } from './empty/empty.module';
 
 @NgModule({
   imports: [],
-  exports: [
-    VerticalLayout1Module,
-    EmptyModule,
-  ]
+  exports: [VerticalLayout1Module, EmptyModule]
 })
 export class LayoutModule {}

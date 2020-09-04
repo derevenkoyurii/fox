@@ -9,6 +9,5 @@ export class DemoSidebarComponent {
   /**
    * Constructor
    */
-  constructor() {
-  }
+  constructor() {}
 }

@@ -9,12 +9,12 @@ import {
   Renderer2,
   ViewEncapsulation
 } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-import {commonAnimations} from 'src/common/scss/animations';
-import {CommonSidebarService} from 'src/common/components/sidebar/sidebar.service';
+import { commonAnimations } from 'src/common/scss/animations';
+import { CommonSidebarService } from 'src/common/components/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-theme-options',
@@ -74,10 +74,7 @@ export class ThemeOptionsComponent implements OnInit, OnDestroy {
 
     this.form
       .get('theme')
-      .valueChanges
-      .pipe(
-        takeUntil(this._unsubscribeAll),
-      )
+      .valueChanges.pipe(takeUntil(this._unsubscribeAll))
       .subscribe((theme) => {
         this.themeChanged.emit(theme);
       });

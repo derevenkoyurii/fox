@@ -9,7 +9,8 @@ import {
   OnInit,
   OnDestroy,
   Renderer2,
-  ViewEncapsulation, HostListener
+  ViewEncapsulation,
+  HostListener
 } from '@angular/core';
 import {
   animate,
@@ -128,9 +129,21 @@ export class SidebarComponent implements OnInit, OnDestroy {
       this.fold();
 
       // Set the folded width
-      this._renderer.setStyle(this._elementRef.nativeElement, 'width', styleValue);
-      this._renderer.setStyle(this._elementRef.nativeElement, 'min-width', styleValue);
-      this._renderer.setStyle(this._elementRef.nativeElement, 'max-width', styleValue);
+      this._renderer.setStyle(
+        this._elementRef.nativeElement,
+        'width',
+        styleValue
+      );
+      this._renderer.setStyle(
+        this._elementRef.nativeElement,
+        'min-width',
+        styleValue
+      );
+      this._renderer.setStyle(
+        this._elementRef.nativeElement,
+        'max-width',
+        styleValue
+      );
 
       // Set the style and class
       this._renderer.setStyle(sibling, styleRule, styleValue);
@@ -211,10 +224,18 @@ export class SidebarComponent implements OnInit, OnDestroy {
    */
   private _setupVisibility(): void {
     // Remove the existing box-shadow
-    this._renderer.setStyle(this._elementRef.nativeElement, 'box-shadow', 'none');
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'box-shadow',
+      'none'
+    );
 
     // Make the sidebar invisible
-    this._renderer.setStyle(this._elementRef.nativeElement, 'visibility', 'hidden');
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'visibility',
+      'hidden'
+    );
   }
 
   /**
@@ -226,9 +247,15 @@ export class SidebarComponent implements OnInit, OnDestroy {
     // Add the correct class name to the sidebar
     // element depending on the position attribute
     if (this.position === 'right') {
-      this._renderer.addClass(this._elementRef.nativeElement, 'right-positioned');
+      this._renderer.addClass(
+        this._elementRef.nativeElement,
+        'right-positioned'
+      );
     } else {
-      this._renderer.addClass(this._elementRef.nativeElement, 'left-positioned');
+      this._renderer.addClass(
+        this._elementRef.nativeElement,
+        'left-positioned'
+      );
     }
   }
 
@@ -257,7 +284,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this._matchMediaService.onMediaChange
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(() => {
-
         // Get the active status
         const isActive = this._mediaObserver.isActive(this.lockedOpen);
 
@@ -358,9 +384,21 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.fold();
 
     // Set the folded width
-    this._renderer.setStyle(this._elementRef.nativeElement, 'width', styleValue);
-    this._renderer.setStyle(this._elementRef.nativeElement, 'min-width', styleValue);
-    this._renderer.setStyle(this._elementRef.nativeElement, 'max-width', styleValue);
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'width',
+      styleValue
+    );
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'min-width',
+      styleValue
+    );
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'max-width',
+      styleValue
+    );
 
     // Set the style and class
     this._renderer.setStyle(sibling, styleRule, styleValue);
@@ -385,23 +423,23 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
 
     // Append the backdrop to the parent of the sidebar
-    this._renderer.appendChild(this._elementRef.nativeElement.parentElement, this._backdrop);
+    this._renderer.appendChild(
+      this._elementRef.nativeElement.parentElement,
+      this._backdrop
+    );
 
     // Create the enter animation and attach it to the player
-    this._player =
-      this._animationBuilder
-        .build([
-          animate('300ms ease', style({ opacity: 1 }))
-        ]).create(this._backdrop);
+    this._player = this._animationBuilder
+      .build([animate('300ms ease', style({ opacity: 1 }))])
+      .create(this._backdrop);
 
     // Play the animation
     this._player.play();
 
     // Add an event listener to the overlay
     this._backdrop.addEventListener('click', () => {
-        this.close();
-      }
-    );
+      this.close();
+    });
 
     // Mark for check
     this._changeDetectorRef.markForCheck();
@@ -418,18 +456,15 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
 
     // Create the leave animation and attach it to the player
-    this._player =
-      this._animationBuilder
-        .build([
-          animate('300ms ease', style({ opacity: 0 }))
-        ]).create(this._backdrop);
+    this._player = this._animationBuilder
+      .build([animate('300ms ease', style({ opacity: 0 }))])
+      .create(this._backdrop);
 
     // Play the animation
     this._player.play();
 
     // Once the animation is done...
     this._player.onDone(() => {
-
       // If the backdrop still exists...
       if (this._backdrop) {
         // Remove the backdrop
@@ -470,12 +505,19 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
     // Add a delay so close animation can play
     setTimeout(() => {
-
       // Remove the box-shadow
-      this._renderer.setStyle(this._elementRef.nativeElement, 'box-shadow', 'none');
+      this._renderer.setStyle(
+        this._elementRef.nativeElement,
+        'box-shadow',
+        'none'
+      );
 
       // Make the sidebar invisible
-      this._renderer.setStyle(this._elementRef.nativeElement, 'visibility', 'hidden');
+      this._renderer.setStyle(
+        this._elementRef.nativeElement,
+        'visibility',
+        'hidden'
+      );
     }, delayAmount);
 
     // Mark for check
@@ -660,9 +702,21 @@ export class SidebarComponent implements OnInit, OnDestroy {
     // Set the folded width
     const styleValue = this.foldedWidth + 'px';
 
-    this._renderer.setStyle(this._elementRef.nativeElement, 'width', styleValue);
-    this._renderer.setStyle(this._elementRef.nativeElement, 'min-width', styleValue);
-    this._renderer.setStyle(this._elementRef.nativeElement, 'max-width', styleValue);
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'width',
+      styleValue
+    );
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'min-width',
+      styleValue
+    );
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
+      'max-width',
+      styleValue
+    );
 
     // Mark for check
     this._changeDetectorRef.markForCheck();

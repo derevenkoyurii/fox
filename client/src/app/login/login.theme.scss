@@ -5,9 +5,7 @@
   $is-dark: map-get($theme, is-dark);
 
   app-login {
-
     #login {
-
       #login-intro {
         color: white;
       }
@@ -16,12 +14,10 @@
         background: map-get($background, card);
 
         #login-form {
-
           .separator {
             color: map-get($foreground, divider);
 
             .text {
-
               &:before,
               &:after {
                 border-top-color: map-get($foreground, divider);

@@ -11,6 +11,5 @@ export class CardedFullWidthTabbed1Component {
   /**
    * Constructor
    */
-  constructor() {
-  }
+  constructor() {}
 }

@@ -20,5 +20,4 @@ const PIPES = [
   declarations: [...PIPES],
   exports: [...PIPES]
 })
-export class PipesModule {
-}
+export class PipesModule {}

@@ -1,14 +1,18 @@
-import {ChangeDetectionStrategy, ViewEncapsulation, Component} from '@angular/core';
-import { Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {select, Store} from '@ngrx/store';
-import { CommonSidebarService} from 'src/common';
+import {
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  Component
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { CommonSidebarService } from 'src/common';
 
 import {
   RootStoreState,
   layoutSelectors,
-  navigationSelectors,
+  navigationSelectors
 } from 'src/app/core/root-store';
 
 @Component({
@@ -44,15 +48,14 @@ export class NavigationComponent {
   constructor(
     private _sidebarService: CommonSidebarService,
     private _router: Router,
-    private _store: Store<RootStoreState>,
-  ) {
-  }
+    private _store: Store<RootStoreState>
+  ) {}
 
   /**
    * @name toggleSidebarOpened
    * @description
    */
-   toggleSidebarOpened(): void {
+  toggleSidebarOpened(): void {
     this._sidebarService.getSidebar('navbar').toggleOpen();
   }
 
@@ -60,7 +63,7 @@ export class NavigationComponent {
    * @name toggleSidebarFolded
    * @description
    */
-   toggleSidebarFolded(): void {
+  toggleSidebarFolded(): void {
     this._sidebarService.getSidebar('navbar').toggleFold();
   }
 }

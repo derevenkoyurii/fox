@@ -3,7 +3,6 @@
   $background: map-get($theme, background);
 
   app-layout-toolbar {
-
     .toolbar-separator {
       background: map-get($foreground, divider);
     }

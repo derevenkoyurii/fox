@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MaterialModule,
   MaintenanceModule,
@@ -35,12 +35,11 @@ import {
   SimpleRightSidebar1Component,
   SimpleRightSidebar2Component,
   SimpleRightSidebar3Component,
-  SimpleRightSidebar4Component,
+  SimpleRightSidebar4Component
 } from './simple';
-import {BlankComponent} from './blank/blank.component';
+import { BlankComponent } from './blank/blank.component';
 
-import {PageLayoutRouting} from './page-layout.routing';
-
+import { PageLayoutRouting } from './page-layout.routing';
 
 @NgModule({
   declarations: [
@@ -85,5 +84,4 @@ import {PageLayoutRouting} from './page-layout.routing';
     PageLayoutRouting
   ]
 })
-export class PageLayoutsModule {
-}
+export class PageLayoutsModule {}

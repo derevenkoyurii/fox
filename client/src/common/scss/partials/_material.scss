@@ -2,7 +2,6 @@
 // @ Theming
 // -----------------------------------------------------------------------------------------------------
 @mixin material-theme($theme) {
-
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
@@ -24,9 +23,7 @@
   // @ Navigation - Simple
   // -----------------------------------------------------------------------------------------------------
   .navigation-simple {
-
     .item {
-
       &.selected {
         background-color: map-get($background, hover);
       }
@@ -97,26 +94,26 @@ mat-icon.status {
   border-radius: 50%;
 
   &.online {
-    color: #4CAF50;
+    color: #4caf50;
 
     &:before {
-      content: "check_circle";
+      content: 'check_circle';
     }
   }
 
   &.do-not-disturb {
-    color: #F44336;
+    color: #f44336;
 
     &:before {
-      content: "remove_circle_outline";
+      content: 'remove_circle_outline';
     }
   }
 
   &.away {
-    color: #FFC107;
+    color: #ffc107;
 
     &:before {
-      content: "access_time";
+      content: 'access_time';
     }
   }
 
@@ -124,7 +121,7 @@ mat-icon.status {
     color: #646464;
 
     &:before {
-      content: "not_interested";
+      content: 'not_interested';
     }
   }
 }
@@ -147,7 +144,6 @@ mat-icon.status {
 // -----------------------------------------------------------------------------------------------------
 
 .navigation-simple {
-
   .item {
     position: relative;
     cursor: pointer;

@@ -22,7 +22,7 @@ export interface TokenPayload {
   name?: string;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private token: string;
 

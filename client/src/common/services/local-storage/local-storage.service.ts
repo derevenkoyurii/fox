@@ -43,7 +43,11 @@ export class LocalStorageService {
                 : true;
 
             if (isValid) {
-              currentStateRef[key] = merge({}, _initialState[key], stateFromStore);
+              currentStateRef[key] = merge(
+                {},
+                _initialState[key],
+                stateFromStore
+              );
             } else {
               // clear all stores
               sessionStorage.clear();

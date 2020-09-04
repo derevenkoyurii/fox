@@ -1,6 +1,10 @@
 // outer imports
 import { createFeatureSelector } from '@ngrx/store';
-import { RouterReducerState, getSelectors, DEFAULT_ROUTER_FEATURENAME } from '@ngrx/router-store';
+import {
+  RouterReducerState,
+  getSelectors,
+  DEFAULT_ROUTER_FEATURENAME
+} from '@ngrx/router-store';
 // inner imports
 // imports end
 

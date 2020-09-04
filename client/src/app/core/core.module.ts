@@ -1,14 +1,14 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import {
   CommonModule,
   HashLocationStrategy,
   LocationStrategy
 } from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
-import {EffectsModule} from '@ngrx/effects';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {ActionReducerMap, MetaReducer, StoreModule} from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ActionReducerMap, MetaReducer, StoreModule } from '@ngrx/store';
 
 import {
   routerReducer,
@@ -16,7 +16,7 @@ import {
   RouterState
 } from '@ngrx/router-store';
 
-import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface,
@@ -31,7 +31,7 @@ import {
   MaterialModule
 } from 'src/common';
 
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 import {
   RootStoreState,
@@ -39,9 +39,8 @@ import {
   initStateFromLocalStorage,
   navigationReducer,
   layoutReducer,
-
   LayoutEffects,
-  NavigationEffects,
+  NavigationEffects
 } from './root-store';
 
 const reducers: ActionReducerMap<RootStoreState> = {
@@ -50,14 +49,14 @@ const reducers: ActionReducerMap<RootStoreState> = {
   router: routerReducer
 };
 
-
 const metaReducers: MetaReducer<RootStoreState>[] = [initStateFromLocalStorage];
 if (!environment.production) {
   metaReducers.unshift(debug);
 }
 
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [],
@@ -65,22 +64,19 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     CommonModule,
     HttpClientModule,
 
-    StoreModule.forRoot(reducers, {metaReducers}),
+    StoreModule.forRoot(reducers, { metaReducers }),
 
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
-        name: 'Angular Template',
-        maxAge: 25
-      }),
+          name: 'Angular Template',
+          maxAge: 25
+        }),
 
     MaterialModule,
-    EffectsModule.forRoot([
-      LayoutEffects,
-      NavigationEffects
-    ]),
+    EffectsModule.forRoot([LayoutEffects, NavigationEffects]),
     StoreRouterConnectingModule.forRoot({
-      routerState: RouterState.Minimal,
+      routerState: RouterState.Minimal
     }),
 
     PerfectScrollbarModule,
@@ -91,7 +87,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppr
     })
   ],
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
 
     LocalStorageService,
     NotificationService,
@@ -107,7 +103,7 @@ export class CoreModule {
   constructor(
     @Optional()
     @SkipSelf()
-      parentModule: CoreModule
+    parentModule: CoreModule
   ) {
     if (parentModule) {
       throw new Error('CoreModule is already loaded. Import only in AppModule');

@@ -9,12 +9,11 @@ import {
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import {  Observable, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
 import { commonAnimations } from 'src/common';
 import { layoutSelectors, RootStoreState } from 'src/app/core/root-store';
-
 
 @Component({
   selector: 'app-vertical-collapsable',

@@ -57,5 +57,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: []
 })
-export class TodoRouting {
-}
+export class TodoRouting {}

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {RouterModule} from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from 'src/common';
 
@@ -17,13 +17,7 @@ import { NavbarComponent } from './navbar.component';
     NavVerticalItemComponent,
     NavbarComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FlexLayoutModule,
-
-    MaterialModule,
-  ],
+  imports: [CommonModule, RouterModule, FlexLayoutModule, MaterialModule],
   exports: [NavbarComponent]
 })
 export class NavbarModule {}

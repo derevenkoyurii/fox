@@ -6,12 +6,7 @@ import { MaterialModule } from 'src/common/material.module';
 import { ProgressBarComponent } from './progress-bar.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-
-    MaterialModule
-  ],
+  imports: [CommonModule, RouterModule, MaterialModule],
   declarations: [ProgressBarComponent],
   exports: [ProgressBarComponent]
 })

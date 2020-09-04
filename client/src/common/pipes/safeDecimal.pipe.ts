@@ -2,12 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { isNumber, isFinite } from 'lodash';
 import { DecimalPipe } from '@angular/common';
 
-
 @Pipe({ name: 'safeDecimal' })
 export class SafeDecimalPipe implements PipeTransform {
-
-  constructor(private decimalPipe: DecimalPipe) {
-  }
+  constructor(private decimalPipe: DecimalPipe) {}
 
   /**
    * Transform

@@ -33,7 +33,6 @@ export class NavVerticalItemComponent implements OnInit {
    * On init
    */
   ngOnInit(): void {
-
     this.isFolded$ = this._store.select(layoutSelectors.getNavigationIsFolded);
   }
 }

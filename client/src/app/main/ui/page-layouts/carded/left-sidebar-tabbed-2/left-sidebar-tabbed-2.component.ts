@@ -14,10 +14,7 @@ export class CardedLeftSidebarTabbed2Component {
    * @param _sidebarService
 
    */
-  constructor(
-    private _sidebarService: CommonSidebarService
-  ) {
-  }
+  constructor(private _sidebarService: CommonSidebarService) {}
 
   /**
    * Toggle sidebar

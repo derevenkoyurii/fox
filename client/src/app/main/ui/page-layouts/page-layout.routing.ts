@@ -131,5 +131,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: []
 })
-export class PageLayoutRouting {
-}
+export class PageLayoutRouting {}

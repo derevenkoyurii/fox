@@ -81,13 +81,13 @@ $typography: mat-typography-config(
 // @ Component theming
 // -----------------------------------------------------------------------------------------------------
 
-@import "src/app/layout/components/toolbar/toolbar.theme";
-@import "src/app/layout/components/navigation/navigation.theme";
+@import 'src/app/layout/components/toolbar/toolbar.theme';
+@import 'src/app/layout/components/navigation/navigation.theme';
 
-@import "src/app/login/login.theme";
-@import "src/app/register/register.theme";
+@import 'src/app/login/login.theme';
+@import 'src/app/register/register.theme';
 
-@import "src/app/main/apps/todo/todo.theme";
+@import 'src/app/main/apps/todo/todo.theme';
 
 // Define a mixin for easier access
 @mixin components-theme($theme) {
@@ -145,12 +145,15 @@ $default-accent-palette: mat-palette($mat-light-blue, 600, 400, 700);
 $default-warn-palette: mat-palette($mat-red);
 
 // Create the Material theme object
-$blue-light-theme: mat-light-theme($default-primary-palette, $default-accent-palette, $default-warn-palette);
+$blue-light-theme: mat-light-theme(
+  $default-primary-palette,
+  $default-accent-palette,
+  $default-warn-palette
+);
 
 // Add ".theme-default" class to the body to activate this theme.
 // Class name must start with "theme-" !!!
 body.theme-blue-light {
-
   // Create an Angular Material theme from the $theme map
   @include angular-material-theme($blue-light-theme);
 
@@ -180,12 +183,15 @@ $yellow-light-theme-accent-palette: mat-palette($mat-yellow, 600, 400, 700);
 $yellow-light-theme-warn-palette: mat-palette($mat-red);
 
 // Create the Material theme object
-$yellow-light-theme: mat-light-theme($yellow-light-theme-primary-palette, $yellow-light-theme-accent-palette, $yellow-light-theme-warn-palette);
+$yellow-light-theme: mat-light-theme(
+  $yellow-light-theme-primary-palette,
+  $yellow-light-theme-accent-palette,
+  $yellow-light-theme-warn-palette
+);
 
 // Add ".theme-yellow-light" class to the body to activate this theme.
 // Class name must start with "theme-" !!!
 body.theme-yellow-light {
-
   // Generate the Angular Material theme
   @include angular-material-theme($yellow-light-theme);
 
@@ -215,12 +221,15 @@ $blue-gray-dark-theme-accent-palette: mat-palette($mat-blue-gray);
 $blue-gray-dark-theme-warn-palette: mat-palette($mat-red);
 
 // Create the Material theme object
-$blue-gray-dark-theme: mat-dark-theme($blue-gray-dark-theme-primary-palette, $blue-gray-dark-theme-accent-palette, $blue-gray-dark-theme-warn-palette);
+$blue-gray-dark-theme: mat-dark-theme(
+  $blue-gray-dark-theme-primary-palette,
+  $blue-gray-dark-theme-accent-palette,
+  $blue-gray-dark-theme-warn-palette
+);
 
 // Add ".theme-blue-gray-dark" class to the body to activate this theme.
 // Class name must start with "theme-" !!!
 body.theme-blue-gray-dark {
-
   // Generate the Angular Material theme
   @include angular-material-theme($blue-gray-dark-theme);
 
@@ -250,12 +259,15 @@ $pink-dark-theme-accent-palette: mat-palette($mat-pink);
 $pink-dark-theme-warn-palette: mat-palette($mat-red);
 
 // Create the Material theme object
-$pink-dark-theme: mat-dark-theme($pink-dark-theme-primary-palette, $pink-dark-theme-accent-palette, $pink-dark-theme-warn-palette);
+$pink-dark-theme: mat-dark-theme(
+  $pink-dark-theme-primary-palette,
+  $pink-dark-theme-accent-palette,
+  $pink-dark-theme-warn-palette
+);
 
 // Add ".theme-pink-dark" class to the body to activate this theme.
 // Class name must start with "theme-" !!!
 body.theme-pink-dark {
-
   // Generate the Angular Material theme
   @include angular-material-theme($pink-dark-theme);
 
