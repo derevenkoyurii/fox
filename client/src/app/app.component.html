@@ -1,0 +1,22 @@
+<app-progress-bar></app-progress-bar>
+
+<app-vertical-layout-1 *ngIf="auth.isLoggedIn()"></app-vertical-layout-1>
+
+<app-empty-layout *ngIf="!auth.isLoggedIn()"></app-empty-layout>
+
+<button
+  *ngIf="auth.isLoggedIn()"
+  mat-icon-button
+  class="theme-options-button"
+  (click)="toggleSidebarOpen('themeOptionsPanel')"
+>
+  <mat-icon>settings</mat-icon>
+</button>
+
+<app-sidebar name="themeOptionsPanel" class="theme-options-sidebar" position="right" [invisibleOverlay]="true">
+  <app-theme-options
+    [activeTheme]="activeTheme"
+
+    (themeChanged)="onThemeChanged($event)"
+  ></app-theme-options>
+</app-sidebar>

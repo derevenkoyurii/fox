@@ -1,0 +1,19 @@
+<div *ngIf="todos.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+  <span class="no-todos-text hint-text">There are no todos!</span>
+</div>
+
+<div class="todo-list" ngxDroppable [model]="todos" (out)="onDrop($event)" [@animateStagger]="{value:'50'}">
+  <app-todo-list-item
+    *ngFor="let todo of todos" [todo]="todo"
+    class="todo-list-item has-handle"
+    ngxDraggable
+    matRipple
+
+    [model]="todo"
+    [ngClass]="{'current-todo':todo?.id == currentTodo?.id}"
+
+    [@animate]="{value:'*',params:{y:'100%'}}"
+    (click)="readTodo(todo.id)"
+  >
+  </app-todo-list-item>
+</div>

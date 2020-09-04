@@ -1,0 +1,66 @@
+@import 'src/common/scss/common';
+
+:host {
+  .search-bar {
+    display: flex;
+
+    height: 100%;
+    flex: 0 1 auto;
+    min-height: 45px;
+
+    label {
+      display: flex;
+      flex: 100%;
+    }
+
+    .search-bar-content {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: flex-start;
+      align-items: center;
+
+      .search-bar-expander {
+        text-align: left;
+      }
+
+      .search-bar-expander,
+      .search-bar-collapser {
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .search-bar-collapser {
+        display: none;
+      }
+
+      #search-bar-input {
+        display: none;
+
+        font-size: 16px;
+        color: currentColor;
+        background-color: transparent;
+      }
+
+      label {
+        height: 100%;
+      }
+    }
+
+    &.expanded {
+      .search-bar-content {
+        #search-bar-input {
+          display: flex;
+          height: 100%;
+        }
+
+        label {
+          display: none;
+        }
+
+        .search-bar-collapser {
+          display: block;
+        }
+      }
+    }
+  }
+}

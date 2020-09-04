@@ -1,0 +1,26 @@
+<div class="theme-options-panel" [perfectScrollbar]>
+
+  <div class="header">
+    <span class="title">Theme Options</span>
+    <button mat-icon-button class="close-button" (click)="toggleSidebarOpen('themeOptionsPanel')">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </div>
+
+  <form [formGroup]="form">
+    <div class="group">
+      <h2>Color themes</h2>
+
+      <mat-radio-group fxLayout="column" fxLayoutAlign="start start" formControlName="theme">
+        <mat-radio-button class="mb-12" value="theme-teal-light">Teal Light</mat-radio-button>
+        <mat-radio-button class="mb-12" value="theme-blue-light">Blue Light</mat-radio-button>
+        <mat-radio-button class="mb-12" value="theme-yellow-light">Yellow Dark</mat-radio-button>
+
+        <mat-radio-button class="mb-12" value="theme-blue-gray-dark">Blue-Gray Dark</mat-radio-button>
+        <mat-radio-button class="mb-12" value="theme-pink-dark">Pink Dark</mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+  </form>
+</div>

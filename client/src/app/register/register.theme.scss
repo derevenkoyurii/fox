@@ -1,0 +1,36 @@
+@mixin app-register-theme($theme) {
+
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+  $is-dark: map-get($theme, is-dark);
+
+  app-register {
+
+    #register {
+
+      #register-intro {
+        color: white;
+      }
+
+      #register-form-wrapper {
+        background: map-get($background, card);
+
+        #register-form {
+
+          .separator {
+            color: map-get($foreground, divider);
+
+            .text {
+
+              &:before,
+              &:after {
+                border-top-color: map-get($foreground, divider);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

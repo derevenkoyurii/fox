@@ -1,0 +1,96 @@
+<ng-container *ngTemplateOutlet="mainContent"></ng-container>
+
+<ng-template #mainContent>
+  <div id="main">
+    <!-- TOOLBAR: Above -->
+    <ng-container *ngIf="(toolbar$ | async).position === 'above'">
+      <ng-container *ngTemplateOutlet="toolbarTpl"></ng-container>
+    </ng-container>
+    <!-- / TOOLBAR: Above -->
+
+    <div id="container-1" class="container">
+      <!-- NAVBAR: Left -->
+      <ng-container *ngIf="(navigation$ | async).position === 'left'">
+        <ng-container *ngTemplateOutlet="leftNavbarTpl"></ng-container>
+      </ng-container>
+      <!-- / NAVBAR: Left -->
+
+      <div id="container-2" class="container">
+        <!-- TOOLBAR: Below fixed -->
+        <ng-container *ngIf="(toolbar$ | async).position === 'below-fixed'">
+          <ng-container *ngTemplateOutlet="toolbarTpl"></ng-container>
+        </ng-container>
+        <!-- / TOOLBAR: Below fixed -->
+
+        <div id="container-3" class="container" [perfectScrollbar]>
+          <!-- TOOLBAR: Below static -->
+          <ng-container *ngIf="(toolbar$ | async).position === 'below-static'">
+            <ng-container *ngTemplateOutlet="toolbarTpl"></ng-container>
+          </ng-container>
+          <!-- / TOOLBAR: Below static -->
+
+          <!-- CONTENT -->
+          <app-layout-content></app-layout-content>
+          <!-- / CONTENT -->
+        </div>
+      </div>
+
+      <!-- NAVBAR: Right -->
+      <ng-container *ngIf="(navigation$ | async).position === 'right'"></ng-container>
+      <!-- / NAVBAR: Right -->
+    </div>
+
+    <!-- FOOTER -->
+    <ng-container *ngTemplateOutlet="footerTpl"></ng-container>
+    <!-- / FOOTER -->
+  </div>
+</ng-template>
+
+<!-- TOOLBAR -->
+<ng-template #toolbarTpl>
+  <ng-container *ngIf="toolbar$ | async as toolbar">
+    <app-layout-toolbar
+      *ngIf="!toolbar.hidden"
+      [ngClass]="
+        toolbar.customBackgroundColor === true
+          ? toolbar.position + ' ' + toolbar.background
+          : toolbar.position
+      "
+    >
+    </app-layout-toolbar>
+  </ng-container>
+</ng-template>
+<!-- / TOOLBAR -->
+
+<!-- FOOTER -->
+<ng-template #footerTpl>
+  <ng-container *ngIf="footer$ | async as footer">
+    <app-layout-footer
+      *ngIf="!footer.hidden"
+      [ngClass]="
+        footer.customBackgroundColor === true
+          ? footer.background
+          : ' '
+      "
+    >
+  </app-layout-footer>
+  </ng-container>
+</ng-template>
+<!-- / FOOTER -->
+
+<!-- LEFT NAVIGATION -->
+<ng-template #leftNavbarTpl>
+  <ng-container *ngIf="(navigation$ | async) as navigation">
+    <app-sidebar
+      *ngIf="!navigation.hidden"
+      name="navbar"
+      class="navbar-sidebar"
+
+      [folded]="navigation.folded"
+      [lockedOpen]="'gt-md'"
+    >
+      <app-layout-navigation class="left-navigation"></app-layout-navigation>
+    </app-sidebar>
+  </ng-container>
+</ng-template>
+<!-- / LEFT NAVIGATION -->

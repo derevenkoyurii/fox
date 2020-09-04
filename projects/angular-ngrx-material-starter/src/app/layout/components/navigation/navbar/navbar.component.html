@@ -1,9 +1,0 @@
-<div class="nav">
-  <!-- Vertical Navigation Layout -->
-  <ng-container *ngFor="let item of pages">
-    <anms-vertical-group *ngIf="item.type == 'group'" [item]="item"></anms-vertical-group>
-    <anms-vertical-collapsable *ngIf="item.type == 'collapsable'" [item]="item"></anms-vertical-collapsable>
-    <anms-vertical-item *ngIf="item.type == 'item'" [item]="item"></anms-vertical-item>
-  </ng-container>
-  <!-- / Vertical Navigation Layout -->
-</div>

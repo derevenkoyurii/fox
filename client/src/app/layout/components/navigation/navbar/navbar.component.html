@@ -1,0 +1,7 @@
+<div class="nav">
+  <ng-container *ngFor="let item of pages">
+    <app-vertical-group *ngIf="item.type == 'group'" [item]="item"></app-vertical-group>
+    <app-vertical-collapsable *ngIf="item.type == 'collapsable'" [item]="item"></app-vertical-collapsable>
+    <app-vertical-item *ngIf="item.type == 'item'" [item]="item"></app-vertical-item>
+  </ng-container>
+</div>

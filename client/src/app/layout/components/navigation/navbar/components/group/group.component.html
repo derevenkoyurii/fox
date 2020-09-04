@@ -1,0 +1,13 @@
+<ng-container *ngIf="!item.hidden">
+  <div class="group-title" [ngClass]="item.classes">
+    <span class="hint-text">{{item.title}}</span>
+  </div>
+
+  <div class="group-items">
+    <ng-container *ngFor="let item of item.children">
+      <app-vertical-group *ngIf="item.type == 'group'" [item]="item"></app-vertical-group>
+      <app-vertical-collapsable *ngIf="item.type == 'collapsable'" [item]="item"></app-vertical-collapsable>
+      <app-vertical-item *ngIf="item.type == 'item'" [item]="item"></app-vertical-item>
+    </ng-container>
+  </div>
+</ng-container>

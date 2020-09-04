@@ -1,51 +1,35 @@
-# Angular, NgRx, Material design
-by [@derevenkoyurii](https://www.linkedin.com/in/yurii-derevenko-747967125/)
+# User Authentication with the MEAN Stack
 
-## Getting started
+A look at managing user authentication in the MEAN stack using the most common MEAN architecture of having an Angular single-page app using a REST API built with Node, Express and MongoDB.
 
-```bash
-git clone https://github.com/derevenkoyurii/angular-ngrx-material-starter.git new-project
-cd new-project
-npm install
-npm start
-```
+Article: https://www.sitepoint.com/user-authentication-mean-stack/
 
-## Useful Commands
+## Requirements
 
-- `npm start` - starts a dev server and opens browser with running app
-- `npm run start:prod` - runs full prod build and serves prod bundle
-- `npm run format:write` - runs prettier to format whole code base (`.ts` and `.scss`)
-- `npm run analyze` - runs full prod build and `webpack-bundle-analyzer` to visualize how much code is shipped (dependencies & application)
+• [Node.js](http://nodejs.org/)  
+• [MongoDB](https://www.mongodb.org/)
 
-## Goals
+## Installation Steps (if applicable)
 
-The main goal of this repository is to provide an up to date example of Angular application following all recent best practices in various areas like:
+1. Clone repo: `git clone git@github.com:sitepoint-editors/mean-authentication.git`
+2. Change into root directory: `cd mean-stack`
+3. Run: `npm install`
+4. Make sure MongoDB is running
+5. Start the API server using: `npm start`
+6. Change into Angular app directory: `cd client`
+7. Run: `npm install`
+8. Start the Angular app using: `npm start`
+9. Visit http://localhost:4200/ to register an account and login
 
-- `@ngrx/store` - including reducers, actions, selectors
-- `@ngrx/effects` - for implementation of side effects like `http` requests, logging, notifications,...
-- `@ngrx/entity` - for CRUD operations
-- `@ngrx/router-store` - to connect the Angular Router to @ngrx/store
-- `@ngrx/store-devtools` - to enable a powerful time-travelling debugger.
-- `@angular/material` - material design component library, theming, ...
-- routing
-- Angular CLI configuration (prod build, budgets, ...)
+## License
 
-## Features
+SitePoint's code archives and code examples are licensed under the MIT license.
 
-- custom themes support (5 themes included)
-- lazy-loading of feature modules
-- lazy reducers
-- localStorage ui state persistence
-- `@ngrx/effects` for API requests
-- fully responsive design
-- angular-material and custom components
+Copyright © 2020 SitePoint
 
-## Branching strategy
-Developer must follow `git flow` branching strategy:
-- Branch name for production releases: `master`
-- Branch name for "next release" development: `develop`
-- Feature branch prefix: `feature/`
-- Bugfix branch prefix: `bugfix/`
-- Release branch prefix: `release/`
-- Hotfix branch prefix: `hotfix/`
-- Support branch prefix: `support/`
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

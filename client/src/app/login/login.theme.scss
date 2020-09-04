@@ -1,0 +1,35 @@
+@mixin app-login-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+  $is-dark: map-get($theme, is-dark);
+
+  app-login {
+
+    #login {
+
+      #login-intro {
+        color: white;
+      }
+
+      #login-form-wrapper {
+        background: map-get($background, card);
+
+        #login-form {
+
+          .separator {
+            color: map-get($foreground, divider);
+
+            .text {
+
+              &:before,
+              &:after {
+                border-top-color: map-get($foreground, divider);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

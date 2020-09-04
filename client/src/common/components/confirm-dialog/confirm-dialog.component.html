@@ -1,0 +1,13 @@
+<div fxLayout="column" cdkTrapFocus>
+  <div matDialogTitle></div>
+
+  <div mat-dialog-content class="p-0 m-0 confirm-dialog-content">{{confirmMessage}}</div>
+
+  <div mat-dialog-actions class="class pb-12" fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="dialogRef.close(false)"></button>
+
+    <button cdkFocusInitial mat-raised-button [color]="'accent'" (click)="dialogRef.close(true)">
+
+    </button>
+  </div>
+</div>
