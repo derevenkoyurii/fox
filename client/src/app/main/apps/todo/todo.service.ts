@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
+  RouterStateSnapshot,
+  Resolve
 } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
@@ -14,112 +14,94 @@ import { Todo } from './todo.model';
 
 @Injectable()
 export class TodoService implements Resolve<any> {
-  todos: Todo[];
-  selectedTodos: Todo[];
+  todos: Todo[] = [];
+  selectedTodos: Todo[] = [];
   currentTodo: Todo;
-  searchText: string;
-  filters: any[];
-  tags: any[];
-  routeParams: any;
+  searchText = '';
+  filters: any[] = [];
+  tags: any[] = [];
+  routeParams: any = {};
 
-  onTodosChanged: BehaviorSubject<any>;
-  onSelectedTodosChanged: BehaviorSubject<any>;
-  onCurrentTodoChanged: BehaviorSubject<any>;
-  onFiltersChanged: BehaviorSubject<any>;
-  onTagsChanged: BehaviorSubject<any>;
-  onSearchTextChanged: BehaviorSubject<any>;
-  onNewTodoClicked: Subject<any>;
+  onTodosChanged: BehaviorSubject<any> = new BehaviorSubject([]);
+  onSelectedTodosChanged: BehaviorSubject<any> = new BehaviorSubject([]);
+  onCurrentTodoChanged: BehaviorSubject<any> = new BehaviorSubject([]);
 
-  /**
-   * Constructor
-   *
-   * @param _httpClient
-   * @param _location
-   */
-  constructor(private _httpClient: HttpClient, private _location: Location) {
-    // Set the defaults
-    this.selectedTodos = [];
-    this.searchText = '';
-    this.onTodosChanged = new BehaviorSubject([]);
-    this.onSelectedTodosChanged = new BehaviorSubject([]);
-    this.onCurrentTodoChanged = new BehaviorSubject([]);
-    this.onFiltersChanged = new BehaviorSubject([
-      {
-        id: 0,
-        handle: 'starred',
-        title: 'Starred',
-        icon: 'star'
-      },
-      {
-        id: 1,
-        handle: 'important',
-        title: 'Priority',
-        icon: 'error'
-      },
-      {
-        id: 2,
-        handle: 'dueDate',
-        title: 'Sheduled',
-        icon: 'schedule'
-      },
-      {
-        id: 3,
-        handle: 'today',
-        title: 'Today',
-        icon: 'today'
-      },
-      {
-        id: 4,
-        handle: 'completed',
-        title: 'Done',
-        icon: 'check'
-      },
-      {
-        id: 4,
-        handle: 'deleted',
-        title: 'Deleted',
-        icon: 'delete'
-      }
-    ]);
-    this.onTagsChanged = new BehaviorSubject([
-      {
-        id: 1,
-        handle: 'frontend',
-        title: 'Frontend',
-        color: '#388E3C'
-      },
-      {
-        id: 2,
-        handle: 'backend',
-        title: 'Backend',
-        color: '#F44336'
-      },
-      {
-        id: 3,
-        handle: 'api',
-        title: 'API',
-        color: '#FF9800'
-      },
-      {
-        id: 4,
-        handle: 'issue',
-        title: 'Issue',
-        color: '#0091EA'
-      },
-      {
-        id: 5,
-        handle: 'mobile',
-        title: 'Mobile',
-        color: '#9C27B0'
-      }
-    ]);
-    this.onSearchTextChanged = new BehaviorSubject('');
-    this.onNewTodoClicked = new Subject();
-  }
+  onFiltersChanged: BehaviorSubject<any> = new BehaviorSubject([
+    {
+      id: 0,
+      handle: 'starred',
+      title: 'Starred',
+      icon: 'star'
+    },
+    {
+      id: 1,
+      handle: 'important',
+      title: 'Priority',
+      icon: 'error'
+    },
+    {
+      id: 2,
+      handle: 'dueDate',
+      title: 'Sheduled',
+      icon: 'schedule'
+    },
+    {
+      id: 3,
+      handle: 'today',
+      title: 'Today',
+      icon: 'today'
+    },
+    {
+      id: 4,
+      handle: 'completed',
+      title: 'Done',
+      icon: 'check'
+    },
+    {
+      id: 4,
+      handle: 'deleted',
+      title: 'Deleted',
+      icon: 'delete'
+    }
+  ]);
+  onTagsChanged: BehaviorSubject<any> = new BehaviorSubject([
+    {
+      id: 1,
+      handle: 'frontend',
+      title: 'Frontend',
+      color: '#388E3C'
+    },
+    {
+      id: 2,
+      handle: 'backend',
+      title: 'Backend',
+      color: '#F44336'
+    },
+    {
+      id: 3,
+      handle: 'api',
+      title: 'API',
+      color: '#FF9800'
+    },
+    {
+      id: 4,
+      handle: 'issue',
+      title: 'Issue',
+      color: '#0091EA'
+    },
+    {
+      id: 5,
+      handle: 'mobile',
+      title: 'Mobile',
+      color: '#9C27B0'
+    }
+  ]);
 
-  /**
-   * Resolver
-   */
+  onSearchTextChanged: BehaviorSubject<any> = new BehaviorSubject('');
+  onNewTodoClicked: Subject<any> = new Subject();
+
+  constructor(private _httpClient: HttpClient, private _location: Location) {}
+
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -149,9 +131,6 @@ export class TodoService implements Resolve<any> {
     });
   }
 
-  /**
-   * Get todos
-   */
   getTodos(): Promise<Todo[]> {
     if (this.routeParams.tagHandle) {
       return this.getTodosByTag(this.routeParams.tagHandle);
@@ -164,9 +143,6 @@ export class TodoService implements Resolve<any> {
     return this.getTodosByParams(this.routeParams);
   }
 
-  /**
-   * Get todos by params
-   */
   getTodosByParams(handle): Promise<Todo[]> {
     return new Promise((resolve, reject) => {
       this._httpClient.get('api/todo').subscribe((todos: any) => {
@@ -176,14 +152,12 @@ export class TodoService implements Resolve<any> {
 
         this.todos = Utils.filterArrayByString(this.todos, this.searchText);
         this.onTodosChanged.next(this.todos);
+
         resolve(this.todos);
       });
     });
   }
 
-  /**
-   * Get todos by filter
-   */
   getTodosByFilter(handle): Promise<Todo[]> {
     let param = handle + '=true';
 
@@ -206,9 +180,6 @@ export class TodoService implements Resolve<any> {
     });
   }
 
-  /**
-   * Get todos by tag
-   */
   getTodosByTag(handle): Promise<Todo[]> {
     return new Promise((resolve, reject) => {
       this._httpClient
@@ -236,9 +207,6 @@ export class TodoService implements Resolve<any> {
     });
   }
 
-  /**
-   * Toggle selected todos by id
-   */
   toggleSelectedTodo(id): void {
     // First, check if we already have that todo as selected...
     if (this.selectedTodos.length > 0) {
@@ -271,9 +239,6 @@ export class TodoService implements Resolve<any> {
     this.onSelectedTodosChanged.next(this.selectedTodos);
   }
 
-  /**
-   * Toggle select all
-   */
   toggleSelectAll(): void {
     if (this.selectedTodos.length > 0) {
       this.deselectTodos();
@@ -282,9 +247,6 @@ export class TodoService implements Resolve<any> {
     }
   }
 
-  /**
-   * Select todos
-   */
   selectTodos(filterParameter?, filterValue?): void {
     this.selectedTodos = [];
 
@@ -303,9 +265,6 @@ export class TodoService implements Resolve<any> {
     this.onSelectedTodosChanged.next(this.selectedTodos);
   }
 
-  /**
-   * Deselect todos
-   */
   deselectTodos(): void {
     this.selectedTodos = [];
 
@@ -313,9 +272,6 @@ export class TodoService implements Resolve<any> {
     this.onSelectedTodosChanged.next(this.selectedTodos);
   }
 
-  /**
-   * Set current todos by id
-   */
   setCurrentTodo(id): void {
     this.currentTodo = this.todos.find((todo: Todo) => todo.id === id);
 
@@ -333,18 +289,12 @@ export class TodoService implements Resolve<any> {
     }
   }
 
-  /**
-   * Toggle tag on selected todos
-   */
   toggleTagOnSelectedTodos(tagId): void {
     this.selectedTodos.map((todo) => {
       this.toggleTagOnTodo(tagId, todo);
     });
   }
 
-  /**
-   * Toggle tag on todos
-   */
   toggleTagOnTodo(tagId, todo): void {
     const index = todo.tags.indexOf(tagId);
 
@@ -357,9 +307,6 @@ export class TodoService implements Resolve<any> {
     this.updateTodo(todo);
   }
 
-  /**
-   * Has tag?
-   */
   hasTag(tagId, todo): any {
     if (!todo.tags) {
       return false;
@@ -368,9 +315,6 @@ export class TodoService implements Resolve<any> {
     return todo.tags.indexOf(tagId) !== -1;
   }
 
-  /**
-   * Update the todos
-   */
   updateTodo(todo): any {
     return new Promise((resolve, reject) => {
       this._httpClient

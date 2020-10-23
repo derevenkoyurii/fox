@@ -19,31 +19,18 @@ export class TodoComponent implements OnInit, OnDestroy {
   isIndeterminate: boolean;
   filters: any[];
   tags: any[];
-  searchInput: FormControl;
+  searchInput: FormControl = new FormControl('');
   currentTodo: Todo;
 
   private _unsubscribeAll: Subject<any>;
 
-  /**
-   * Constructor
-   *
-   * @param _sidebarService
-   * @param _todoService
-   */
   constructor(
     private _sidebarService: CommonSidebarService,
     private _todoService: TodoService
   ) {
-    // Set the defaults
-    this.searchInput = new FormControl('');
-
-    // Set the private defaults
     this._unsubscribeAll = new Subject();
   }
 
-  /**
-   * On init
-   */
   ngOnInit(): void {
     this._todoService.onSelectedTodosChanged
       .pipe(takeUntil(this._unsubscribeAll))
@@ -89,60 +76,32 @@ export class TodoComponent implements OnInit, OnDestroy {
       });
   }
 
-  /**
-   * On destroy
-   */
   ngOnDestroy(): void {
     // Unsubscribe from all subscriptions
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
 
-  /**
-   * Deselect current todo
-   */
   deselectCurrentTodo(): void {
     this._todoService.onCurrentTodoChanged.next([null, null]);
   }
 
-  /**
-   * Toggle select all
-   */
   toggleSelectAll(): void {
     this._todoService.toggleSelectAll();
   }
 
-  /**
-   * Select todos
-   *
-   * @param filterParameter
-   * @param filterValue
-   */
   selectTodos(filterParameter?, filterValue?): void {
     this._todoService.selectTodos(filterParameter, filterValue);
   }
 
-  /**
-   * Deselect todos
-   */
   deselectTodos(): void {
     this._todoService.deselectTodos();
   }
 
-  /**
-   * Toggle tag on selected todos
-   *
-   * @param tagId
-   */
   toggleTagOnSelectedTodos(tagId): void {
     this._todoService.toggleTagOnSelectedTodos(tagId);
   }
 
-  /**
-   * Toggle the sidebar
-   *
-   * @param name
-   */
   toggleSidebar(name): void {
     this._sidebarService.getSidebar(name).toggleOpen();
   }

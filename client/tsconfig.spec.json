@@ -1,18 +1,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
+    "outDir": "./out-tsc/spec",
     "types": [
-      "node",
-      "hammerjs",
-      "lodash"
+      "jest",
+      "node"
     ]
   },
   "files": [
-    "src/main.ts",
+    "src/test.ts",
     "src/polyfills.ts"
   ],
   "include": [
+    "src/**/*.spec.ts",
     "src/**/*.d.ts"
   ]
 }
