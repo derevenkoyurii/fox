@@ -2,12 +2,6 @@
 
 echo Deploy to GitHub Pages
 
-# only deploy tags
-if [ -z "$TRAVIS_TAG" ]; then
-
-  echo Deploy to GitHub Pages - Skip deployment
-
-else
 
   echo Deploy to GitHub Pages - Start
 
@@ -33,7 +27,5 @@ else
   git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
 
   echo Deploy to GitHub Pages - Success
-
-fi
 
 echo Deploy to GitHub Pages - Finish
