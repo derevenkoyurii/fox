@@ -20,41 +20,23 @@ export class TodoListComponent implements OnInit, OnDestroy {
   todos: Todo[];
   currentTodo: Todo;
 
-  // Private
   private _unsubscribeAll: Subject<any>;
 
-  /**
-   * Constructor
-   *
-   * @param  _activatedRoute
-   * @param  _todoService
-   * @param  _location
-   */
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _todoService: TodoService,
     private _location: Location
   ) {
-    // Set the private defaults
     this._unsubscribeAll = new Subject();
   }
 
-  // -----------------------------------------------------------------------------------------------------
-  // @ Lifecycle hooks
-  // -----------------------------------------------------------------------------------------------------
-
-  /**
-   * On init
-   */
   ngOnInit(): void {
-    // Subscribe to update todos on changes
     this._todoService.onTodosChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((todos) => {
         this.todos = todos;
       });
 
-    // Subscribe to update current todo on changes
     this._todoService.onCurrentTodoChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((currentTodo) => {
@@ -63,8 +45,9 @@ export class TodoListComponent implements OnInit, OnDestroy {
           this.currentTodo = null;
 
           // Handle the location changes
-          const tagHandle = this._activatedRoute.snapshot.params.tagHandle,
-            filterHandle = this._activatedRoute.snapshot.params.filterHandle;
+          const tagHandle = this._activatedRoute.snapshot.params.tagHandle;
+          const filterHandle = this._activatedRoute.snapshot.params
+            .filterHandle;
 
           if (tagHandle) {
             this._location.go('apps/todo/tag/' + tagHandle);
@@ -79,33 +62,16 @@ export class TodoListComponent implements OnInit, OnDestroy {
       });
   }
 
-  /**
-   * On destroy
-   */
   ngOnDestroy(): void {
     // Unsubscribe from all subscriptions
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
 
-  // -----------------------------------------------------------------------------------------------------
-  // @ Public methods
-  // -----------------------------------------------------------------------------------------------------
-
-  /**
-   * Read todo
-   *
-   * @param todoId
-   */
   readTodo(todoId): void {
     // Set current todo
     this._todoService.setCurrentTodo(todoId);
   }
 
-  /**
-   * On drop
-   *
-   * @param ev
-   */
   onDrop(ev): void {}
 }

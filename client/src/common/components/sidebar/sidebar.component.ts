@@ -415,11 +415,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this._backdrop = this._renderer.createElement('div');
 
     // Add a class to the backdrop element
-    this._backdrop.classList.add('fuse-sidebar-overlay');
+    this._backdrop.classList.add('sidebar-overlay');
 
     // Add a class depending on the invisibleOverlay option
     if (this.invisibleOverlay) {
-      this._backdrop.classList.add('fuse-sidebar-overlay-invisible');
+      this._backdrop.classList.add('sidebar-overlay-invisible');
     }
 
     // Append the backdrop to the parent of the sidebar
