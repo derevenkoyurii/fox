@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,9 +9,10 @@
     "build:prod": "ng build --prod",
     "release": "standard-version && git push --follow-tags origin master",
     "lint": "ng lint",
-    "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
-    "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
-    "test": "ng test",
+    "test": "ng lint && ng test --configuration=test",
+    "watch": "ng test --configuration=test --browsers ChromeHeadless --watch --reporters dots",
+    "format:write": "prettier ./**/*.{ts,json,md,scss} --write",
+    "format:test": "prettier ./**/*.{ts,json,md,scss} --list-different",
     "e2e": "ng e2e"
   },
   "private": true,
