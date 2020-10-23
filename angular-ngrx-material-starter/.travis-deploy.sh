@@ -17,7 +17,7 @@ else
   git init
 
   # inside this git repo we'll pretend to be a new user
-  git config user.name "Yurii Derevenko"
+  git config user.name "derevenkoyurii"
   git config user.email "derevenkoyurec@gmail.com"
 
   # The first and only commit to this new Git repo contains all the
