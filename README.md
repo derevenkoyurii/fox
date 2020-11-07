@@ -1,4 +1,4 @@
-# MEAN stack, Material design
+# Fox
 by [@derevenkoyurii](https://github.com/derevenkoyurii)
 
 ## Requirements
