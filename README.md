@@ -1,5 +1,5 @@
-# Fox
-by [@derevenkoyurii](https://github.com/derevenkoyurii)
+# MEAN Stack Single Page Application Starter
+## This is a repo for a starter appliation for a Single Page MEAN Stack application. Just download and install and you have a good foundation for building application
 
 ## Requirements
 
@@ -17,5 +17,7 @@ by [@derevenkoyurii](https://github.com/derevenkoyurii)
 7. Run: `npm install`
 8. Start the Angular app using: `npm start`
 9. Visit http://localhost:4200/ 
+
+## by [@derevenkoyurii](https://github.com/derevenkoyurii)
 
 
